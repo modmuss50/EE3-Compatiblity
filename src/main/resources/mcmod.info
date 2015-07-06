@@ -1,0 +1,21 @@
+[
+{
+  "modid": "EE3Compatibility",
+  "name": "EE3Compatibility",
+  "description": "",
+  "version": "0.0.1",
+  "url": ",
+  "updateUrl": "",
+  "authorList": [
+    "modmuss50"
+    
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
