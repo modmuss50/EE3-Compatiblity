@@ -1,5 +1,6 @@
 package me.modmuss50.mods.ee3Compatibility;
 
+import com.pahimar.ee3.init.ModItems;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -39,13 +40,16 @@ public class EE3Compatibility {
         if(event.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK){
             Block block = event.world.getBlock(event.x, event.y, event.z);
             if(event.entityPlayer.getCurrentEquippedItem() != null){
-                if(event.entityPlayer.getCurrentEquippedItem().getItem() == com.pahimar.ee3.init.ModItems.stonePhilosophers){
+                if(event.entityPlayer.getCurrentEquippedItem().getItem() == com.pahimar.ee3.init.ModItems.stonePhilosophers || event.entityPlayer.getCurrentEquippedItem().getItem() == ModItems.stoneMinium){
                     if(event.entityPlayer.isSneaking()){
                         if(block == Blocks.cobblestone){
                             event.world.setBlock(event.x, event.y, event.z, Blocks.grass);
                         }
                         if(block == Blocks.grass){
-                            event.world.setBlock(event.x, event.y, event.z, Blocks.sand);
+                            event.world.setBlock(event.x, event.y, event.z, Blocks.cobblestone);
+                        }
+                        if(block == Blocks.sand){
+                            event.world.setBlock(event.x, event.y, event.z, Blocks.grass);
                         }
                     } else {
                         if(block == Blocks.cobblestone){
@@ -53,6 +57,9 @@ public class EE3Compatibility {
                         }
                         if(block == Blocks.stone){
                             event.world.setBlock(event.x, event.y, event.z, Blocks.cobblestone);
+                        }
+                        if(block == Blocks.grass){
+                            event.world.setBlock(event.x, event.y, event.z, Blocks.sand);
                         }
                     }
                 }
